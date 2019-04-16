@@ -1,0 +1,51 @@
+.board {
+    width= 200 px
+}
+#instructions{
+    float: left
+    fontcolor: white;
+}
+#points{
+   align-content: center
+}
+body{
+  /* display: flex; */
+
+}
+html {
+  /* background: url(spaceship.jpg) no-repeat center center fixed; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#modal {
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	overflow: auto;
+}
+#modal-textbox {
+	background-color: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+  text-align: center;
+}
+#instructions {
+  height = 400
+  width = 200
+}
+footer {
+    background-color: white;
+    position:absolute;
+    height 60 px;
+    display: flex;
+    display: inline block;
+    bottom: 0;
+    width: 100%;
+}
