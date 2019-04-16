@@ -1,5 +1,6 @@
 .board {
-    width= 200 px
+    width: 100%
+    display: inline-block;
 }
 #instructions{
     float: left
@@ -9,45 +10,60 @@
    align-content: center
 }
 body{
-  /* display: flex; */
+
 
 }
 html {
-  background: url(spaceship.jpg) no-repeat center center fixed;
+  background: url(space.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-#modal {
+.modal {
 	background-color: white;
-	position: fixed;
-  padding-top: 100px
-	top: 0;
-	left: 0;
-	height: 600px;
-	width: 100%;
-	z-index: 1;
+	/* position: fixed; */
+  /* padding-top: 100px */
+	/* top: 0;
+	left: 0; */
+	height: 200px;
+	width: 65%;
+	/* z-index: 0; */
 	overflow: auto;
   text-align: center;
 }
 #modal-textbox {
 	background-color: white;
 	height: 700px;
-	width: 1000px;
+	width: 30%;
 	border-radius: 2px;
   text-align: center;
 }
 #instructions {
-  height = 400
-  width = 200
+  height: 400px;
+  width: 33%;
+  background-color: grey;
 }
 footer {
-    background-color: white;
-    position:absolute;
-    height 60 px;
+}
+#ftContainer {
+  background-color: black;
+  color: rgb(89,222,46);
+  position:absolute;
+  height 60 px;
+  display: flex;
+  display: row;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-around;
+}
+header {
+    text-align: center;
+}
+#bodCont {
     display: flex;
-    display: inline block;
-    bottom: 0;
-    width: 100%;
+    flex-direction: row;
+}
+#display {
+    width: 65%;
 }

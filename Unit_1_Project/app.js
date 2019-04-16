@@ -2,11 +2,38 @@ $(() => {
 let hull = 50
 let explrPts = 35
 let gas = 25
-// let enemy = hull -(Math.floor(Math.Random()*30))
+$('#hull').append(hull)
+$('#batt').append(gas)
+$('#explrPts').append(explrPts)
 
-// const closeModal = () => {
-//   $('modal').css('display', 'none');
-// }
+let plusOrMin = () => {
+    if(Math.random() <= .8){
+        return  '+='
+    }else{
+        return  '-='
+    }
+
+const pointsGen = () => {
+    let randHull = Math.floor(Math.random()*5);
+    let randExplr = Math.floor(Math.random()*20);
+    let randBatt = Math.floor(Math.random()*15);
+    let randEnemGen = () => {
+        if(Math.round() <= .9){
+            randEnem = 0
+        }else{
+            randEnem = hull -= 15       }
+    }
+    randEnemGen();
+}
+pointsGen();
+// plusOrMin();
+alert(randBatt)
+console.log(randEnem);
+console.log(randHull);
+console.log(randExplr);
+
+
+}
   let $planet1 = {
       img: 'planet.jpg',
       gas: 'gas += 2',
@@ -16,6 +43,7 @@ let gas = 25
 
 $planetArray = []
 $modalArray = []
+$modalArray2 = []
 $('#100').on('click', (event) => {
     event.preventDefault
     // $('.board').clear();
@@ -38,7 +66,6 @@ $('#100').on('click', (event) => {
               $planet = $('<button>');
               $planet.attr('class', 'openModal'+ i)
               $planet.attr('alt', i)
-              $planet.text(i + 1)
 
               $planetMod = $('<div>');
               $planetMod.attr('class', 'modal')
@@ -48,28 +75,25 @@ $('#100').on('click', (event) => {
               $nameLabel = $('<h4>')
               $nameLabel.text('Planet Name:')
               $planetModname = $('<h5>');
-              // $planetModname.text('Name');
               $planetModname.html(data.results[i].name);
               $nameLabel.append($planetModname)
 
               $terrainLabel = $('<h4>');
               $terrainLabel.text('Terrain:')
               $planetModTerrain = $('<h5>');
-              // $planetModTerrain.text('Terrain');
               $planetModTerrain.html(data.results[i].terrain);
               $terrainLabel.append($planetModTerrain)
 
               $popLabel = $('<h4>');
-              $popLabel.text('Climate:')
+              $popLabel.text('Climate:');
               $planetModPop = $('<h5>');
-              // $planetModPop.text('Population');
-              $planetModPop.html(data.results[i].population);
+              $planetModPop.html(data.results[i].climate);
               $popLabel.append($planetModPop)
 
               $climateLabel = $('<h4>');
               $climateLabel.text('Population:')
               $planetModClimate = $('<h5>');
-              $planetModClimate.html(data.results[i].climate);
+              $planetModClimate.html(data.results[i].population);
               $climateLabel.append($planetModClimate)
 
 
@@ -78,158 +102,77 @@ $('#100').on('click', (event) => {
               $planetMod.append($climateLabel);
               $planetMod.append($popLabel);
 
-              $modA = $('<a>');
+              $modA = $('<button>');
               $modA.text('Choose Next Planet');
-              $modA.attr('id', 'close')
-              $modA.attr('href', '#')
+              $modA.attr('class', 'close')
               $planetMod.append($modA)
 
               $planetMod.hide();
-              //
+
               $modalArray.push($planetMod)
-              $('body').append($planetMod);
-
-
-              // $planetPop = data.results[i].population
-              // $planetTerr = data.results[i].terrain
-              // $planetDiam = data.results[i].diameter
+              $('#display').append($planetMod);
 
               const $dd = $('<dd>');
               $dd.html(data.results[i].name)
               $planet.append($dd)
+              // $dd.css('text-align:', 'center')
               $('.board').append($planet)
-
-              // $planet.append($planetName);
-              // $planet.append($planetPop);
-              // $planet.append($planetTerr);
-              // $planet.append($planetDiam);
-              // console.log($Planetname);
         }
+
         $('.openModal0').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[0].show()
-          };
-          openModal();
+            $('.modal').hide();
+            $modalArray[0].append(pointsGen())
+            $modalArray[0].show()
         });
+
         $('.openModal1').on('click',(event) => {
-            console.log('hi');
-            console.log(event.currentTarget);
-            const openModal = () => {
-                // event.currentTarget(css('display', 'block'));
-                $('modal').off()
-                console.log($modalArray);
-                $modalArray[1].show()
-            };
-            openModal();
+            $('.modal').hide();
+            $modalArray[1].show()
         });
+
         $('.openModal2').on('click',(event) => {
-            console.log('hi');
-            console.log(event.currentTarget);
-            const openModal = () => {
-                  // event.currentTarget(css('display', 'block'));
-            console.log($modalArray);
+            $('.modal').hide();
             $modalArray[2].show()
-            };
-            openModal();
         });
+
         $('.openModal3').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[3].show()
-          };
-          openModal();
         });
+
         $('.openModal4').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[4].show()
-          };
-          openModal();
         });
+
         $('.openModal5').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[5].show();
-          };
-          openModal();
         });
+
         $('.openModal6').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[6].show()
-          };
-          openModal();
         });
+
         $('.openModal7').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[7].show();
-          };
-          openModal();
         });
+
         $('.openModal8').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[8].show();
-          };
-          openModal();
         });
+
         $('.openModal9').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
+              $('.modal').hide();
               $modalArray[9].show();
-
-          };
-          openModal();
         });
-        $('#close').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const closeModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $('modal').hide();
 
-          };
-          closeModal();
+        $('.close').on('click',(event) => {
+          $('.modal').hide();
         });
-          const changePts =(planet) => {
-              gas -= 1
-              gas = planet.gas
-              explPts = planet.explPts
-              hull = planet.hull
-          }
-        // })
-
-
-
-
-
       })
     });
 $('#200').on('click', (event) => {
@@ -256,7 +199,6 @@ $('#200').on('click', (event) => {
               $secSet = i + 11
               $planet.attr('class', 'openModal'+ $secSet)
               $planet.attr('alt', i)
-              $planet.text(i + 11)
 
               $planetMod = $('<div>');
               $planetMod.attr('class', 'modal')
@@ -266,28 +208,25 @@ $('#200').on('click', (event) => {
               $nameLabel = $('<h4>')
               $nameLabel.text('Planet Name:')
               $planetModname = $('<h5>');
-              // $planetModname.text('Name');
               $planetModname.html(data.results[i].name);
               $nameLabel.append($planetModname)
 
               $terrainLabel = $('<h4>');
               $terrainLabel.text('Terrain:')
               $planetModTerrain = $('<h5>');
-              // $planetModTerrain.text('Terrain');
               $planetModTerrain.html(data.results[i].terrain);
               $terrainLabel.append($planetModTerrain)
 
               $popLabel = $('<h4>');
               $popLabel.text('Climate:')
               $planetModPop = $('<h5>');
-              // $planetModPop.text('Population');
-              $planetModPop.html(data.results[i].population);
+              $planetModPop.html(data.results[i].climate);
               $popLabel.append($planetModPop)
 
               $climateLabel = $('<h4>');
               $climateLabel.text('Population:')
               $planetModClimate = $('<h5>');
-              $planetModClimate.html(data.results[i].climate);
+              $planetModClimate.html(data.results[i].population);
               $climateLabel.append($planetModClimate)
 
 
@@ -296,146 +235,75 @@ $('#200').on('click', (event) => {
               $planetMod.append($climateLabel);
               $planetMod.append($popLabel);
 
-              $modA = $('<a>');
+              $modA = $('<button>');
               $modA.text('Choose Next Planet');
-              $modA.attr('id', 'close')
-              $modA.attr('href', '#')
+              $modA.attr('class', 'close')
               $planetMod.append($modA)
 
               $planetMod.hide();
-              //
-              $modalArray.push($planetMod)
-              $('body').append($planetMod);
-
-
-              // $planetPop = data.results[i].population
-              // $planetTerr = data.results[i].terrain
-              // $planetDiam = data.results[i].diameter
+              $modalArray2.push($planetMod)
+              $('#display').append($planetMod);
 
               const $dd = $('<dd>');
               $dd.html(data.results[i].name)
               $planet.append($dd)
               $('.board').append($planet)
 
-              // $planet.append($planetName);
-              // $planet.append($planetPop);
-              // $planet.append($planetTerr);
-              // $planet.append($planetDiam);
-              // console.log($Planetname);
         }
+
         $('.openModal11').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[10].show()
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[0].show()
         });
         $('.openModal12').on('click',(event) => {
-            console.log('hi');
-            console.log(event.currentTarget);
-            const openModal = () => {
-                // event.currentTarget(css('display', 'block'));
-                console.log($modalArray);
-                $modalArray[11].show()
-            };
-            openModal();
+              $('.modal').hide()
+              $modalArray2[1].show()
         });
+
         $('.openModal13').on('click',(event) => {
-            console.log('hi');
-            console.log(event.currentTarget);
-            const openModal = () => {
-                  // event.currentTarget(css('display', 'block'));
-            console.log($modalArray);
-            $modalArray[12].show()
-            };
-            openModal();
+            $('.modal').hide()
+            $modalArray2[2].show()
         });
+
         $('.openModal14').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[13].show()
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[3].show()
         });
+
         $('.openModal15').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[14].show()
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[4].show()
         });
+
         $('.openModal16').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[15].show();
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[5].show();
         });
+
         $('.openModal17').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[16].show()
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray[6].show()
         });
+
         $('.openModal18').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[17].show();
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[7].show();
         });
+
         $('.openModal19').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[18].show();
-          };
-          openModal();
+            $('.modal').hide()
+              $modalArray2[8].show();
         });
+
         $('.openModal20').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const openModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              $modalArray[19].show();
-
-          };
-          openModal();
+              $('.modal').hide()
+              $modalArray2[9].show();
         });
-        $('#close').on('click',(event) => {
-          console.log('hi');
-          console.log(event.currentTarget);
-          const closeModal = () => {
-              // event.currentTarget(css('display', 'block'));
-              console.log($modalArray);
-              // $('modal').hide()
 
-          };
-
-          closeModal();
+        $('.close').on('click',(event) => {
+          $('.modal').hide();
         });
+
           const changePts =(planet) => {
               gas -= 1
               gas = planet.gas
