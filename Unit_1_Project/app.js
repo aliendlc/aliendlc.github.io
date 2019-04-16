@@ -4,6 +4,9 @@ let explrPts = 35
 let gas = 25
 // let enemy = hull -(Math.floor(Math.Random()*30))
 
+// const closeModal = () => {
+//   $('modal').css('display', 'none');
+// }
   let $planet1 = {
       img: 'planet.jpg',
       gas: 'gas += 2',
@@ -13,15 +16,14 @@ let gas = 25
 
 $planetArray = []
 $modalArray = []
-$('form').on('click', (event) => {
+$('#100').on('click', (event) => {
     event.preventDefault
     // $('.board').clear();
-    $('form').off()
+    $('#100').off()
 
     $.ajax(
 
       {
-
         url:'https://swapi.co/api/planets/',
 
         type: 'GET',
@@ -118,6 +120,7 @@ $('form').on('click', (event) => {
             console.log(event.currentTarget);
             const openModal = () => {
                 // event.currentTarget(css('display', 'block'));
+                $('modal').off()
                 console.log($modalArray);
                 $modalArray[1].show()
             };
@@ -210,7 +213,7 @@ $('form').on('click', (event) => {
           const closeModal = () => {
               // event.currentTarget(css('display', 'block'));
               console.log($modalArray);
-              $planetMod.modal('hide')
+              $('modal').hide();
 
           };
           closeModal();
@@ -229,5 +232,223 @@ $('form').on('click', (event) => {
 
       })
     });
+$('#200').on('click', (event) => {
+        event.preventDefault
+        // $('.board').clear();
+        $('#200').off()
+
+    $.ajax(
+
+      {
+
+        url:'https://swapi.co/api/planets/?page=2',
+
+        type: 'GET',
+        dataType: 'json',
+
+      }
+    ).then(
+      (data) => {
+          console.log(data.results);
+          for (let i = 0; i < 10; i++){
+
+              $planet = $('<button>');
+              $secSet = i + 11
+              $planet.attr('class', 'openModal'+ $secSet)
+              $planet.attr('alt', i)
+              $planet.text(i + 11)
+
+              $planetMod = $('<div>');
+              $planetMod.attr('class', 'modal')
+              $planetMod.attr('id', 'modal-textbox')
+              $planet.append($planetMod)
+
+              $nameLabel = $('<h4>')
+              $nameLabel.text('Planet Name:')
+              $planetModname = $('<h5>');
+              // $planetModname.text('Name');
+              $planetModname.html(data.results[i].name);
+              $nameLabel.append($planetModname)
+
+              $terrainLabel = $('<h4>');
+              $terrainLabel.text('Terrain:')
+              $planetModTerrain = $('<h5>');
+              // $planetModTerrain.text('Terrain');
+              $planetModTerrain.html(data.results[i].terrain);
+              $terrainLabel.append($planetModTerrain)
+
+              $popLabel = $('<h4>');
+              $popLabel.text('Climate:')
+              $planetModPop = $('<h5>');
+              // $planetModPop.text('Population');
+              $planetModPop.html(data.results[i].population);
+              $popLabel.append($planetModPop)
+
+              $climateLabel = $('<h4>');
+              $climateLabel.text('Population:')
+              $planetModClimate = $('<h5>');
+              $planetModClimate.html(data.results[i].climate);
+              $climateLabel.append($planetModClimate)
+
+
+              $planetMod.append($nameLabel);
+              $planetMod.append($terrainLabel);
+              $planetMod.append($climateLabel);
+              $planetMod.append($popLabel);
+
+              $modA = $('<a>');
+              $modA.text('Choose Next Planet');
+              $modA.attr('id', 'close')
+              $modA.attr('href', '#')
+              $planetMod.append($modA)
+
+              $planetMod.hide();
+              //
+              $modalArray.push($planetMod)
+              $('body').append($planetMod);
+
+
+              // $planetPop = data.results[i].population
+              // $planetTerr = data.results[i].terrain
+              // $planetDiam = data.results[i].diameter
+
+              const $dd = $('<dd>');
+              $dd.html(data.results[i].name)
+              $planet.append($dd)
+              $('.board').append($planet)
+
+              // $planet.append($planetName);
+              // $planet.append($planetPop);
+              // $planet.append($planetTerr);
+              // $planet.append($planetDiam);
+              // console.log($Planetname);
+        }
+        $('.openModal11').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[10].show()
+          };
+          openModal();
+        });
+        $('.openModal12').on('click',(event) => {
+            console.log('hi');
+            console.log(event.currentTarget);
+            const openModal = () => {
+                // event.currentTarget(css('display', 'block'));
+                console.log($modalArray);
+                $modalArray[11].show()
+            };
+            openModal();
+        });
+        $('.openModal13').on('click',(event) => {
+            console.log('hi');
+            console.log(event.currentTarget);
+            const openModal = () => {
+                  // event.currentTarget(css('display', 'block'));
+            console.log($modalArray);
+            $modalArray[12].show()
+            };
+            openModal();
+        });
+        $('.openModal14').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[13].show()
+          };
+          openModal();
+        });
+        $('.openModal15').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[14].show()
+          };
+          openModal();
+        });
+        $('.openModal16').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[15].show();
+          };
+          openModal();
+        });
+        $('.openModal17').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[16].show()
+          };
+          openModal();
+        });
+        $('.openModal18').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[17].show();
+          };
+          openModal();
+        });
+        $('.openModal19').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[18].show();
+          };
+          openModal();
+        });
+        $('.openModal20').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const openModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              $modalArray[19].show();
+
+          };
+          openModal();
+        });
+        $('#close').on('click',(event) => {
+          console.log('hi');
+          console.log(event.currentTarget);
+          const closeModal = () => {
+              // event.currentTarget(css('display', 'block'));
+              console.log($modalArray);
+              // $('modal').hide()
+
+          };
+
+          closeModal();
+        });
+          const changePts =(planet) => {
+              gas -= 1
+              gas = planet.gas
+              explPts = planet.explPts
+              hull = planet.hull
+          }
+        // })
+console.log($modalArray);
+
+
+      })
+
+      })
+    // });
 
 });
