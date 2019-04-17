@@ -1,39 +1,44 @@
 $(() => {
 let hull = 50
 let explrPts = 35
-let gas = 25
+let batt = 25
 $('#hull').append(hull)
-$('#batt').append(gas)
+$('#batt').append(batt)
 $('#explrPts').append(explrPts)
+
+let sign = ''
 
 let plusOrMin = () => {
     if(Math.random() <= .8){
-        return  '+='
+        sign =  '+='
     }else{
-        return  '-='
+        sign =  '-='
     }
+}
+let randHull ;
+let randExplr;
+let randBatt;
+let randEnem;
 
 const pointsGen = () => {
-    let randHull = Math.floor(Math.random()*5);
-    let randExplr = Math.floor(Math.random()*20);
-    let randBatt = Math.floor(Math.random()*15);
-    let randEnemGen = () => {
-        if(Math.round() <= .9){
-            randEnem = 0
-        }else{
-            randEnem = hull -= 15       }
-    }
-    randEnemGen();
+     randHull = Math.floor(Math.random()*5);
+     randExplr = Math.floor(Math.random()*20);
+     randBatt = Math.floor(Math.random()*15);
+     hull += randHull;
+     explrPts += randExplr;
+     batt += randBatt;
 }
-pointsGen();
-// plusOrMin();
-alert(randBatt)
-console.log(randEnem);
-console.log(randHull);
-console.log(randExplr);
+randEnemGen = () => {
+   if(Math.random() <= .7){
+       randEnem = 0
+   }else{
+       hull -= 15
+      }
+}
+// pointsGen();
+// alert(randEnem)
 
 
-}
   let $planet1 = {
       img: 'planet.jpg',
       gas: 'gas += 2',
@@ -41,19 +46,24 @@ console.log(randExplr);
       hull: ''
   }
 
-$planetArray = []
+$planetImgArray = ['planet1.jpg',
+'planet2.jpg','planet3.jpg','planet4.jpg','planet5.jpg','planet6.jpg','planet7.jpg','planet8.jpg','planet9.jpg','planet10.jpg'
+]
+$planetImgArray2 = ['planet11.jpg',
+'planet12.jpg','planet13.jpg','planet14.jpg','planet15.jpg','planet16.jpg','planet17.jpg','planet18.jpg','planet19.jpg','planet20.jpg'
+]
+
 $modalArray = []
 $modalArray2 = []
+
 $('#100').on('click', (event) => {
     event.preventDefault
-    // $('.board').clear();
     $('#100').off()
 
     $.ajax(
 
       {
         url:'https://swapi.co/api/planets/',
-
         type: 'GET',
         dataType: 'json',
 
@@ -72,6 +82,11 @@ $('#100').on('click', (event) => {
               $planetMod.attr('id', 'modal-textbox')
               $planet.append($planetMod)
 
+              $image = $('<img>')
+              $image.attr('src', $planetImgArray[i])
+              $image.css('max-width', '100%;')
+              $image.css('max-height', '100%')
+              $planetMod.append($image)
               $nameLabel = $('<h4>')
               $nameLabel.text('Planet Name:')
               $planetModname = $('<h5>');
@@ -121,8 +136,15 @@ $('#100').on('click', (event) => {
 
         $('.openModal0').on('click',(event) => {
             $('.modal').hide();
-            $modalArray[0].append(pointsGen())
+            pointsGen();
+            randEnemGen();
+            console.log(hull);
+            $('#batt').text(batt)
+            $('#hull').text(hull)
+            $('#explrPts').text(explrPts)
+            // $modalArray[0].append(pointsGen())
             $modalArray[0].show()
+
         });
 
         $('.openModal1').on('click',(event) => {
@@ -205,6 +227,11 @@ $('#200').on('click', (event) => {
               $planetMod.attr('id', 'modal-textbox')
               $planet.append($planetMod)
 
+              $image = $('<img>')
+              $image.attr('src', $planetImgArray2[i])
+              $image.css('max-width', '100%;')
+              $image.css('max-height', '100%')
+              $planetMod.append($image)
               $nameLabel = $('<h4>')
               $nameLabel.text('Planet Name:')
               $planetModname = $('<h5>');

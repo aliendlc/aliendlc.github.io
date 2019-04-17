@@ -1,20 +1,27 @@
 .board {
     width: 100%
     display: inline-block;
+    height: 120px;
+    margin-top: 20px;
+    /* width: 1000px;
+    text-align: center; */
+    /* align-content: center;
+    width: 1000px; */
 }
 #instructions{
-    float: left
+    float: left;
+    width: 50%;
     fontcolor: white;
 }
 #points{
    align-content: center
 }
 body{
-
+  width: 100%;
 
 }
 html {
-  background: url(space.jpg) no-repeat center center fixed;
+  background: url(astro.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -26,7 +33,7 @@ html {
   /* padding-top: 100px */
 	/* top: 0;
 	left: 0; */
-	height: 200px;
+	height: 70%;
 	width: 65%;
 	/* z-index: 0; */
 	overflow: auto;
@@ -34,17 +41,25 @@ html {
 }
 #modal-textbox {
 	background-color: white;
-	height: 700px;
-	width: 30%;
+	height: 400px;
+	width: auto;
 	border-radius: 2px;
   text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  margin-right: 10%;
+  border-radius: 3px;
+  border-color: grey;
 }
 #instructions {
   height: 400px;
   width: 33%;
-  background-color: grey;
+  background-color: rgb(163, 194, 254);
+  margin:0 auto;
 }
 footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 #ftContainer {
   background-color: black;
@@ -56,14 +71,43 @@ footer {
   bottom: 0;
   width: 100%;
   justify-content: space-around;
+  font-family: 'Press Start 2P', cursive;
 }
 header {
     text-align: center;
+    align-content: center;
 }
 #bodCont {
     display: flex;
     flex-direction: row;
+    width: auto;
+    justify-content: space-around;
+    align-items: center;
 }
 #display {
-    width: 65%;
+    width: 55%;
+}
+.planButt {
+  background-color: rgb(165, 147, 223);
+  border-radius: 12px;
+  font-size: 15px;
+}
+.openModal {
+  background-color: rgb(254, 155, 80);
+  border-radius: 50%;
+  text-align: center;
+}
+h1 {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+.board button{
+    align-content: center;
+}
+dd {
+  margin: 0 auto;
+  vertical-align: middle;
+  font-size: 20px;
+  border-radius: 12px;
+
 }

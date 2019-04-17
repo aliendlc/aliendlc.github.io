@@ -4,17 +4,35 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="app.js"></script>
          <link rel="stylesheet" href="styles.css">
+         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     </head>
     <header>
+      <h1>Space Jump</h1>
       <div id ='forms'>
         <form id='100'>
-            <button type="button">Load 10 Planets</button>
+            <button class= 'planButt'type="button">Load 10 Planets</button>
         </form>
         <form id = '200'>
-            <button type="button">Load 10 more</button>
+            <button class= 'planButt'type="button">Load 10 more</button>
         </form>
         <div class="board">
         </div>
+    </header>
+
+    <body>
+      <div id= 'bodCont'>
+        <div id = 'instructions'>
+        <h3> HERE ARE THE INSTRUCTIINS</h3>
+        </div>
+        <div id='display'>
+        </div>
+      </div>
+      <div id='currPlan'>
+        <h5>Current Planet Resources:</h5>
+        <h6></h6>
+        <h6></h6>
+        <h6></h6>
+      </div>
     </body>
     <footer>
       <div id='points'>
@@ -26,16 +44,5 @@
               <h3>Explorer Points:</h3>
                 <h4 id = 'explrPts'></h4>
             </div>
-
-    </header>
-    <body>
-      <div id= 'bodCont'>
-        <div id = 'instructions'>
-        <h3> HERE ARE THE INSTRUCTIINS</h3>
-        </div>
-        <div id='display'>
-        </div>
-      </div>
-    </body>
     </footer>
 </html>
