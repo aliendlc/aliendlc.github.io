@@ -9,14 +9,14 @@
     border-style: solid;
     border-width: 10px;
     border-color: silver;
-    height: 400px;
-    width: 33%;
+    height: 350px;
+    width: 35%;
     background-color: rgb(163, 194, 254);
     margin:0 auto;
     border-radius: 4px;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
-
+    overflow-y:auto;
 }
 #points{
    align-content: center
@@ -24,6 +24,8 @@
 body{
   width: 100%;
   align-content: center;
+  /* padding-bottom: 50px; */
+  height: 100%;
 }
 html {
   background: url(astro.jpg) no-repeat center center fixed;
@@ -31,6 +33,8 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  /* height: 100%; */
+  /* position: relative; */
 }
 .window {
 	background-color: white;
@@ -57,19 +61,24 @@ html {
   border-radius: 3px;
   border-color: grey;
   margin left: 10%;
+  overflow-y:auto;
 }
 
 footer {
-  position: absolute;
-  height: 60px;
+  position: relative;
   width: 100%;
   bottom: 0;
+  display: flex;
+  /* height: 70px;
+
+  align-content: center; */
+
 }
 #ftContainer {
   background-color: black;
   color: rgb(89,222,46);
-  position:absolute;
-  height 60 px;
+  /* position:absolute; */
+  height: 50px;
   display: flex;
   display: row;
   bottom: 0;
@@ -80,6 +89,7 @@ footer {
 header {
     text-align: center;
     align-content: center;
+
 }
 #bodCont {
     display: flex;
@@ -104,7 +114,7 @@ header {
 h1 {
     color: white;
     font-family: 'Press Start 2P', cursive;
-    font-size: 60px;
+    font-size: 40px;
 }
 .board button{
     align-content: center;
@@ -119,11 +129,12 @@ dd {
     font-size: 20px;
     index:0;
     border-radius: 12px;
-    background-color: red;
+    background-color: limegreen;
     font-family: 'Press Start 2P', cursive;
     justify-content: space-around;
     margin-right: auto;
     margin-left: auto;
+    vertical-align: middle;
 }
 #currPlan {
     width: 100%;
@@ -133,18 +144,22 @@ dd {
     background-color: black;
     border-radius: 4px;
     display: flex;
-    display: row;
-    margin-top: auto;
-    margin-bottom: auto;
+    flex-direction: : row;
+    /* margin-top: auto;
+    margin-bottom: auto; */
     font-family: 'Press Start 2P', cursive;
 }
 #planId {
     border-radius: 12px;
 }
 #center {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     justify-content: space-around;
     padding-top: 30px;
     padding-bottom: auto;
+    /* position: fixed; */
 }
 h5 {
     font-size: 15px;
@@ -156,8 +171,11 @@ load2 {
     margin-top: auto;
 }
 #earth {
-  max-width: inherit;
-  max-height: inherit;
+  max-width: 100%;
+  max-height: 70%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 #modal {
   display: none;
@@ -169,13 +187,66 @@ load2 {
 	width: 100%;
 	z-index: 1;
 	overflow: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #modal-textbox {
 	background-color: white;
-	height: 350px;
-	width: 550px;
+	height: 75%;
+	width: 75%;
 	border-radius: 2px;
 	margin: 150px auto;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#modA {
+    color: white;
+}
+$image {
+    width: auto;
+}
+
+#main {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 35px;
+}
+@media only screen
+
+  and (max-device-width: 900px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #bodCont{
+        flex-direction: column;
+    }
+    #instructions{
+        width: 80%;
+    }
+    #display {
+        width: 80%;
+    }
+    #ftContainer {
+       flex-direction: column;
+       padding-top: 10%;
+       background-color: rgba(0,0,0,0);
+       width: 100%;
+       align-items: flex-end;
+       align-content: center;
+    }
+    #currPlan{
+      flex-direction: column;
+      background-color: rgba(0,0,0,0);
+      align-items: flex-start;
+
+    }
+    #center {
+    flex-direction: row;
+    align-items: center;
+    }
+    #footer {
+      padding-top: 10px;
+    }
 }

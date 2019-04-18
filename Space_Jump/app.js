@@ -9,9 +9,9 @@ let battDisplay = ''
 let explrDisplay = ''
 $('#hull').append(hull)
 $('#batt').append(explrPts)
-$('#explrPts').append(batt)
+$('#explrPts').append(explrPts)
 
-$('#openModal').off();
+$('#openModal').hide();
 
 const $openBtn = $('#openModal');
 const $modal = $('#modal');
@@ -56,9 +56,7 @@ const chkStat = () => {
   $('#planEnemy').text(randEnemDisplay)
     if(explrPts >= 200 && batt >= 150){
         console.log('yay');
-        $('#openModal').css('background-color', 'limegreen')
-        // $modal.css('display', 'block');
-        $('#openModal').on();
+        $('#openModal').show();
     }else{
       console.log('not yet');
     }
@@ -141,8 +139,8 @@ $('#100').on('click', (event) => {
 
               $image = $('<img>')
               $image.attr('src', $planetImgArray[i])
-              $image.css('max-width', '100%;')
-              $image.css('max-height', '100%')
+              $image.css('max-width', '70%;')
+              $image.css('max-height', '70%')
               $planetMod.append($image)
               $nameLabel = $('<h4>')
               $nameLabel.text('Planet Name:')
