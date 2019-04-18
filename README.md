@@ -21,4 +21,8 @@ Issues:
 
 Instructions:
 - download Space-Jump folder
-- collect path to folder user/abc/123/Space_Jump/
+- collect path to folder user/abc/123/Space_Jump/index.html
+- place this path in your browser
+- come back to this universe
+
+or go here: 
