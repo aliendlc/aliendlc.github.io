@@ -33,13 +33,13 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /* height: 100%; */
-  /* position: relative; */
+  width: 100%;
+
 }
 .window {
 	background-color: white;
-	height: 70%;
-	width: 65%;
+	height: 50%;
+	width: 50%;
 	overflow: auto;
   text-align: center;
   border-radius: 4px;
@@ -65,31 +65,21 @@ html {
 }
 
 footer {
-  position: relative;
+  position: fixed;
   width: 100%;
   bottom: 0;
   display: flex;
-  /* height: 70px;
-
-  align-content: center; */
-
+  left: 0;
 }
-#ftContainer {
-  background-color: black;
-  color: rgb(89,222,46);
-  /* position:absolute; */
-  height: 50px;
-  display: flex;
-  display: row;
-  bottom: 0;
-  width: 100%;
-  justify-content: space-around;
-  font-family: 'Press Start 2P', cursive;
-}
+
 header {
     text-align: center;
     align-content: center;
-
+}
+#forms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 #bodCont {
     display: flex;
@@ -136,6 +126,19 @@ dd {
     margin-left: auto;
     vertical-align: middle;
 }
+
+#ftContainer {
+  background-color: black;
+  color: rgb(89,222,46);
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-around;
+  font-family: 'Press Start 2P', cursive;
+}
+
 #currPlan {
     width: 100%;
     justify-content: space-around;
@@ -148,6 +151,8 @@ dd {
     /* margin-top: auto;
     margin-bottom: auto; */
     font-family: 'Press Start 2P', cursive;
+    border-bottom: 4px solid white;
+
 }
 #planId {
     border-radius: 12px;
@@ -193,16 +198,30 @@ load2 {
 }
 
 #modal-textbox {
-	background-color: white;
+	background-color: black;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
 	height: 75%;
 	width: 75%;
 	border-radius: 2px;
 	margin: 150px auto;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+
+}
+#modal-textbox2 {
+  background-color: black;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+	height: 120%;
+	width: 100%;
+	border-radius: 2px;
+	margin: 150px auto;
+  z-index: 1;
+  justify-content: center;
+  text-align: center;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-#modA {
-    color: white;
 }
 $image {
     width: auto;
@@ -212,41 +231,151 @@ $image {
   min-height: 100vh;
   overflow: hidden;
   display: block;
-  position: relative;
-  padding-bottom: 35px;
+  position: fixed;
+  padding-bottom: 75px;px;
 }
-@media only screen
+.closed {
+  background-color: white;
+  color: black;
+}
 
+
+@media only screen
+  and (max-device-width: 1255px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    footer {
+      font-size: 12px;
+    }
+  }
+
+@media only screen
   and (max-device-width: 900px)
+  and (max-device-height:720px)
   and (-webkit-min-device-pixel-ratio: 1) {
     #bodCont{
         flex-direction: column;
     }
+    html {
+      width: 100%;
+    }
+    body {
+      padding-bottom: 100px;
+
+    }
     #instructions{
         width: 80%;
+        height: 40%;
     }
     #display {
         width: 80%;
+        height: auto;
     }
     #ftContainer {
-       flex-direction: column;
-       padding-top: 10%;
        background-color: rgba(0,0,0,0);
-       width: 100%;
-       align-items: flex-end;
-       align-content: center;
+       width: 50%;
+       margin-right: 5px;
+       padding: 3px;
     }
     #currPlan{
-      flex-direction: column;
+      flex-direction: row;
       background-color: rgba(0,0,0,0);
       align-items: flex-start;
+      padding left: 5px;
 
     }
     #center {
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     }
-    #footer {
-      padding-top: 10px;
+    body {
+      width: 100%;
+      padding-bottom: 80px;
     }
+    #main {
+        min-height: 100%;
+        position: relative;
+    }
+    footer {
+
+      height: 80px;
+      position: static;
+      display: inline-block;
+      margin: 2px;
+      /* bottom: 0 */
+
+
+    }
+    #currPlan {
+      border: 0;
+      /* justify-content: flex-start; */
+      margin-left: 5px;
+      width: 50%;
+      /* height: inherit; */
+
+    }
+    #instructions {
+      width: 80%;
+      font-size: 12px;
+    }
+    .window {
+      width: 80%;
+    }
+    h1 {
+      font-size: 20px;
+    }
+    .planButt {
+      font-size: 12px;
+    }
+
+    .footerCont {
+      font-size: 10px;
+      /* display: flex; */
+      /* flex-direction: row; */
+      width: 100%;
+      padding-left: 2px;
+      /* justify-content: space-around; */
+    }
+
+    img {
+      width: 100%
+    }
+    dd {
+      font-size: 10px;
+    }
+    /* #ftHull #ftBatt #ftEx {
+      display: flex;
+      flex-direction: row;
+    } */
+
 }
+@media only screen
+  and (max-device-width: 683px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #center {
+      font-size: 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    #ftCont {
+        display: flex;
+        flex-direction: column;
+    }
+    #ftContainer {
+      display: flex;
+      flex-direction: column;
+      /* justify-content: flex-end; */
+      /* padding-top: 150px; */
+
+    }
+    #main {
+      display: flex;
+      flex-direction: column;
+    }
+    #currPlan {
+      display: flex;
+      flex-direction: column;
+    }
+  }

@@ -1,5 +1,4 @@
 $(() => {
-// const restart = () => {
 
 let hull = 50
 let explrPts = 35
@@ -12,10 +11,12 @@ $('#batt').append(explrPts)
 $('#explrPts').append(explrPts)
 
 $('#openModal').hide();
+$('#modal-textbox2').hide();
 
 const $openBtn = $('#openModal');
 const $modal = $('#modal');
 const $closeBtn = $('.restart');
+const $lost = $('#lost')
 
 
 const openModal = () => {
@@ -24,9 +25,14 @@ const openModal = () => {
 const closeModal = () => {
   $modal.css('display', 'none');
 }
-$openBtn.on('click', openModal)
-// $closeBtn.on('click', restart())
+$openBtn.on('click', openModal);
 
+$('#xOut').on('click',(event) => {
+      $('#instructions').hide();
+})
+$('#close').on('click',(event) => {
+
+});
 
 let sign = ''
 
@@ -54,6 +60,10 @@ const chkStat = () => {
   $('#planBatt').text(battDisplay)
   $('#planExplrPts').text(explrDisplay)
   $('#planEnemy').text(randEnemDisplay)
+  if (hull <= 0){
+      $('#modal-textbox2').show();
+      $('button').off();
+  }
     if(explrPts >= 200 && batt >= 150){
         console.log('yay');
         $('#openModal').show();
@@ -84,16 +94,7 @@ randEnemGen = () => {
        randEnemDisplay = 'Enemy Present: ' + randEnem;
       }
 }
-// pointsGen();
-// alert(randEnem)
 
-
-  // let $planet1 = {
-  //     img: 'planet.jpg',
-  //     gas: 'gas += 2',
-  //     explPts: 'explPts += 5',
-  //     hull: ''
-  // }
 
 $planetImgArray = ['planet1.jpg',
 'planet2.jpg','planet3.jpg','planet4.jpg','planet5.jpg','planet6.jpg','planet7.jpg','planet8.jpg','planet9.jpg','planet10.jpg'
@@ -175,6 +176,7 @@ $('#100').on('click', (event) => {
               $modA = $('<button>');
               $modA.text('Choose Next Planet');
               $modA.attr('class', 'closed')
+
               $planetMod.append($modA)
 
               $planetMod.hide();
@@ -288,6 +290,7 @@ $('#200').on('click', (event) => {
               $planet.append($planetMod)
 
               $image = $('<img>')
+
               $image.attr('src', $planetImgArray2[i])
               $image.css('max-width', '100%;')
               $image.css('max-height', '100%')
@@ -376,7 +379,7 @@ $('#200').on('click', (event) => {
         $('.openModal17').on('click',(event) => {
               $('.window').hide()
               chkStat();
-              $modalArray[6].show()
+              $modalArray2[6].show()
         });
 
         $('.openModal18').on('click',(event) => {
@@ -401,20 +404,8 @@ $('#200').on('click', (event) => {
           $('.window').hide();
         });
 
-          const changePts =(planet) => {
-              gas -= 1
-              gas = planet.gas
-              explPts = planet.explPts
-              hull = planet.hull
-          }
-        // })
-console.log($modalArray);
-
-
       })
 
-      })
-    // });
-// }
-// restart();
+    })
+
 });

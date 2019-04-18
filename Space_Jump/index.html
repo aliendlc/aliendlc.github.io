@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="app.js"></script>
          <link rel="stylesheet" href="styles.css">
@@ -17,6 +17,7 @@
           <form id = '200'>
             <button id='load2' class= 'planButt'type="button">Load 10 more</button>
           </form>
+        </div>
           <div class="board">
           </div>
       </header>
@@ -25,8 +26,9 @@
 
         <div id= 'bodCont'>
           <div id = 'instructions'>
-          <h3>INSTRUCTIONS</h3>
-            <p>We have been stranded in the Star Wars Galaxy!<br><br>Start by loading the planets<br><br>Click on a planet button for fast travel and planet info<br><br>We need to get to:<br><br>150 Battery Points<br><br>200 Explorer Points<br><br>Only then can we jump back to our universe!<br><br>Good Luck!<br><br>Watch out for enemies!</p>
+            <h3>INSTRUCTIONS</h3>
+              <p>We have been stranded in the Star Wars Galaxy!<br><br>Start by loading the planets<br><br>Click on a planet button for fast travel and planet info<br><br>Each planet contains resources to power up<br><br>We need to get to:<br><br>150 Battery Points<br><br>200 Explorer Points<br><br>Only then can we jump back to our universe!<br><br>Good Luck!<br><br>Watch out for enemies!</p>
+              <button id='xOut'>X</button>
           </div>
           <button id='openModal'>JUMP</button>
           <div id="modal" class="myModal">
@@ -36,8 +38,16 @@
               <p>Welcome Back to your universe!</p>
               <p>You have saved your ship and the thirty souls aboard</p>
               <p>We may now look for a habitable planet ... COMING SOON...</p>
-              <a class="close" id='close' href='#'>Restart Game</a>
+              <a class="close" id='close' href=''>Restart Game</a>
             </div>
+          </div>
+            <div id="lost" class="myModal">
+              <div id="modal-textbox2">
+                <p><br>Our Hull has been crushed!</p>
+                <p>Thank you for your service</p>
+                <p>We now drift away in space...<br></p>
+                <a class="close" id='close' href=''>Restart Game<br><br></a>
+              </div>
           </div>
           <div id='display'>
           </div>
@@ -47,22 +57,20 @@
       <footer>
         <div id='center'>
           <div id='currPlan'>
-            <h5>Planet Points:</h5>
-              <h5 id='planHull'></h5>
-              <h5 id='planBatt'></h5>
-              <h5 id='planExplrPts'></h5>
-              <h5 id='planEnemy'></h5>
+            <p class= 'footerCont'>Planet Points:</p>
+              <p class= 'footerCont'id='planHull'></p>
+              <p class= 'footerCont' id='planBatt'></p>
+              <p class= 'footerCont' id='planExplrPts'></p>
+              <p class= 'footerCont' id='planEnemy'></p>
           </div>
-          <div id='points'>
             <div id='ftContainer'>
-              <h3>Hull:</h3>
-                <h4 id = 'hull'></h4>
-              <h3>Battery:</h3>
-                <h4 id = 'batt'></h4>
-              <h3>Ex Points:</h3>
-                <h4 id = 'explrPts'></h4>
+                <p id='ftHull'class= 'footerCont'>Hull:</p>
+                  <p class= 'footerCont' id = 'hull'></p>
+                <p id='ftBatt' class= 'footerCont'>Battery:</p>
+                  <p class= 'footerCont' id = 'batt'></p>
+                <p id = 'ftEx'class= 'footerCont'>Explorer:</p>
+                  <p class= 'footerCont' id = 'explrPts'></p>
             </div>
-          </div>
         </div>
       </footer>
     </div>
