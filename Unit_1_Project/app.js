@@ -1,10 +1,32 @@
 $(() => {
+// const restart = () => {
+
 let hull = 50
 let explrPts = 35
 let batt = 25
+let hullDisplay = ''
+let battDisplay = ''
+let explrDisplay = ''
 $('#hull').append(hull)
-$('#batt').append(batt)
-$('#explrPts').append(explrPts)
+$('#batt').append(explrPts)
+$('#explrPts').append(batt)
+
+$('#openModal').off();
+
+const $openBtn = $('#openModal');
+const $modal = $('#modal');
+const $closeBtn = $('.restart');
+
+
+const openModal = () => {
+  $modal.css('display', 'block');
+}
+const closeModal = () => {
+  $modal.css('display', 'none');
+}
+$openBtn.on('click', openModal)
+// $closeBtn.on('click', restart())
+
 
 let sign = ''
 
@@ -15,36 +37,65 @@ let plusOrMin = () => {
         sign =  '-='
     }
 }
+
 let randHull ;
 let randExplr;
 let randBatt;
-let randEnem;
+let randEnem = 0;
+
+const chkStat = () => {
+  pointsGen();
+  randEnemGen();
+  console.log(hull);
+  $('#batt').text(batt)
+  $('#hull').text(hull)
+  $('#explrPts').text(explrPts)
+  $('#planHull').text(hullDisplay)
+  $('#planBatt').text(battDisplay)
+  $('#planExplrPts').text(explrDisplay)
+  $('#planEnemy').text(randEnemDisplay)
+    if(explrPts >= 200 && batt >= 150){
+        console.log('yay');
+        $('#openModal').css('background-color', 'limegreen')
+        // $modal.css('display', 'block');
+        $('#openModal').on();
+    }else{
+      console.log('not yet');
+    }
+}
+
 
 const pointsGen = () => {
      randHull = Math.floor(Math.random()*5);
      randExplr = Math.floor(Math.random()*20);
-     randBatt = Math.floor(Math.random()*15);
+     randBatt = Math.floor(Math.random()*10);
      hull += randHull;
      explrPts += randExplr;
      batt += randBatt;
+     hullDisplay = 'Hull + ' + randHull;
+     battDisplay = 'Battery + ' + randBatt;
+     explrDisplay = 'Explorer Points + ' + randExplr;
 }
 randEnemGen = () => {
    if(Math.random() <= .7){
-       randEnem = 0
+       randEnem = 0;
+       randEnemDisplay = 'Clear : No Enemy Present';
    }else{
-       hull -= 15
+       randEnem = 'hull - 15';
+       hull -= 15;
+       randEnemDisplay = 'Enemy Present: ' + randEnem;
       }
 }
 // pointsGen();
 // alert(randEnem)
 
 
-  let $planet1 = {
-      img: 'planet.jpg',
-      gas: 'gas += 2',
-      explPts: 'explPts += 5',
-      hull: ''
-  }
+  // let $planet1 = {
+  //     img: 'planet.jpg',
+  //     gas: 'gas += 2',
+  //     explPts: 'explPts += 5',
+  //     hull: ''
+  // }
 
 $planetImgArray = ['planet1.jpg',
 'planet2.jpg','planet3.jpg','planet4.jpg','planet5.jpg','planet6.jpg','planet7.jpg','planet8.jpg','planet9.jpg','planet10.jpg'
@@ -55,6 +106,11 @@ $planetImgArray2 = ['planet11.jpg',
 
 $modalArray = []
 $modalArray2 = []
+
+
+
+
+
 
 $('#100').on('click', (event) => {
     event.preventDefault
@@ -75,11 +131,12 @@ $('#100').on('click', (event) => {
 
               $planet = $('<button>');
               $planet.attr('class', 'openModal'+ i)
+              $planet.attr('id', 'planId')
               $planet.attr('alt', i)
 
               $planetMod = $('<div>');
-              $planetMod.attr('class', 'modal')
-              $planetMod.attr('id', 'modal-textbox')
+              $planetMod.attr('class', 'window')
+              $planetMod.attr('id', 'textbox')
               $planet.append($planetMod)
 
               $image = $('<img>')
@@ -119,7 +176,7 @@ $('#100').on('click', (event) => {
 
               $modA = $('<button>');
               $modA.text('Choose Next Planet');
-              $modA.attr('class', 'close')
+              $modA.attr('class', 'closed')
               $planetMod.append($modA)
 
               $planetMod.hide();
@@ -135,68 +192,72 @@ $('#100').on('click', (event) => {
         }
 
         $('.openModal0').on('click',(event) => {
-            $('.modal').hide();
-            pointsGen();
-            randEnemGen();
-            console.log(hull);
-            $('#batt').text(batt)
-            $('#hull').text(hull)
-            $('#explrPts').text(explrPts)
-            // $modalArray[0].append(pointsGen())
+            $('.window').hide();
+            chkStat();
             $modalArray[0].show()
 
         });
 
         $('.openModal1').on('click',(event) => {
-            $('.modal').hide();
+            $('.window').hide();
+            chkStat();
             $modalArray[1].show()
         });
 
         $('.openModal2').on('click',(event) => {
-            $('.modal').hide();
+            $('.window').hide();
+            chkStat();
             $modalArray[2].show()
         });
 
         $('.openModal3').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[3].show()
         });
 
         $('.openModal4').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[4].show()
         });
 
         $('.openModal5').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[5].show();
         });
 
         $('.openModal6').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[6].show()
         });
 
         $('.openModal7').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[7].show();
         });
 
         $('.openModal8').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[8].show();
         });
 
         $('.openModal9').on('click',(event) => {
-              $('.modal').hide();
+              $('.window').hide();
+              chkStat();
               $modalArray[9].show();
         });
 
-        $('.close').on('click',(event) => {
-          $('.modal').hide();
+        $('.closed').on('click',(event) => {
+          $('.window').hide();
         });
-      })
+      });
     });
+
 $('#200').on('click', (event) => {
         event.preventDefault
         // $('.board').clear();
@@ -223,8 +284,9 @@ $('#200').on('click', (event) => {
               $planet.attr('alt', i)
 
               $planetMod = $('<div>');
-              $planetMod.attr('class', 'modal')
-              $planetMod.attr('id', 'modal-textbox')
+              $planetMod.attr('class', 'window')
+              $planetMod.attr('id', 'textbox')
+              $planet.attr('id', 'planId')
               $planet.append($planetMod)
 
               $image = $('<img>')
@@ -264,7 +326,7 @@ $('#200').on('click', (event) => {
 
               $modA = $('<button>');
               $modA.text('Choose Next Planet');
-              $modA.attr('class', 'close')
+              $modA.attr('class', 'closed')
               $planetMod.append($modA)
 
               $planetMod.hide();
@@ -279,56 +341,66 @@ $('#200').on('click', (event) => {
         }
 
         $('.openModal11').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[0].show()
         });
         $('.openModal12').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[1].show()
         });
 
         $('.openModal13').on('click',(event) => {
-            $('.modal').hide()
+            $('.window').hide()
+            chkStat();
             $modalArray2[2].show()
         });
 
         $('.openModal14').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[3].show()
         });
 
         $('.openModal15').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[4].show()
         });
 
         $('.openModal16').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[5].show();
         });
 
         $('.openModal17').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray[6].show()
         });
 
         $('.openModal18').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[7].show();
         });
 
         $('.openModal19').on('click',(event) => {
-            $('.modal').hide()
-              $modalArray2[8].show();
+            $('.window').hide();
+            chkStat();
+            $modalArray2[8].show();
         });
 
         $('.openModal20').on('click',(event) => {
-              $('.modal').hide()
+              $('.window').hide()
+              chkStat();
               $modalArray2[9].show();
         });
 
-        $('.close').on('click',(event) => {
-          $('.modal').hide();
+        $('.closed').on('click',(event) => {
+          $('.window').hide();
         });
 
           const changePts =(planet) => {
@@ -345,5 +417,6 @@ console.log($modalArray);
 
       })
     // });
-
+// }
+// restart();
 });

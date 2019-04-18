@@ -3,22 +3,27 @@
     display: inline-block;
     height: 120px;
     margin-top: 20px;
-    /* width: 1000px;
-    text-align: center; */
-    /* align-content: center;
-    width: 1000px; */
 }
 #instructions{
-    float: left;
-    width: 50%;
-    fontcolor: white;
+    color: black;
+    border-style: solid;
+    border-width: 10px;
+    border-color: silver;
+    height: 400px;
+    width: 33%;
+    background-color: rgb(163, 194, 254);
+    margin:0 auto;
+    border-radius: 4px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+
 }
 #points{
    align-content: center
 }
 body{
   width: 100%;
-
+  align-content: center;
 }
 html {
   background: url(astro.jpg) no-repeat center center fixed;
@@ -27,37 +32,36 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-.modal {
+.window {
 	background-color: white;
-	/* position: fixed; */
-  /* padding-top: 100px */
-	/* top: 0;
-	left: 0; */
 	height: 70%;
 	width: 65%;
-	/* z-index: 0; */
 	overflow: auto;
   text-align: center;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: 10px;
+  border-color: silver;
 }
-#modal-textbox {
-	background-color: white;
+#textbox {
+	background-color: black;
+  color: white;
 	height: 400px;
 	width: auto;
 	border-radius: 2px;
   text-align: center;
   font-family: 'Press Start 2P', cursive;
-  margin-right: 10%;
+  margin-right: 5%;
   border-radius: 3px;
   border-color: grey;
+  margin left: 10%;
 }
-#instructions {
-  height: 400px;
-  width: 33%;
-  background-color: rgb(163, 194, 254);
-  margin:0 auto;
-}
+
 footer {
   position: absolute;
+  height: 60px;
   width: 100%;
   bottom: 0;
 }
@@ -100,6 +104,7 @@ header {
 h1 {
     color: white;
     font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
 }
 .board button{
     align-content: center;
@@ -109,5 +114,68 @@ dd {
   vertical-align: middle;
   font-size: 20px;
   border-radius: 12px;
+}
+#openModal {
+    font-size: 20px;
+    index:0;
+    border-radius: 12px;
+    background-color: red;
+    font-family: 'Press Start 2P', cursive;
+    justify-content: space-around;
+    margin-right: auto;
+    margin-left: auto;
+}
+#currPlan {
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-radius: 4px;
+    display: flex;
+    display: row;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Press Start 2P', cursive;
+}
+#planId {
+    border-radius: 12px;
+}
+#center {
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: auto;
+}
+h5 {
+    font-size: 15px;
+}
+load1 {
+    margin-bottom: auto;
+}
+load2 {
+    margin-top: auto;
+}
+#earth {
+  max-width: inherit;
+  max-height: inherit;
+}
+#modal {
+  display: none;
+  background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+}
 
+#modal-textbox {
+	background-color: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }

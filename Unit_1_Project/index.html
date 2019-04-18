@@ -10,28 +10,44 @@
       <h1>Space Jump</h1>
       <div id ='forms'>
         <form id='100'>
-            <button class= 'planButt'type="button">Load 10 Planets</button>
+            <button id= 'load1' class= 'planButt'type="button">Load 10 Planets</button>
         </form>
         <form id = '200'>
-            <button class= 'planButt'type="button">Load 10 more</button>
+            <button id='load2' class= 'planButt'type="button">Load 10 more</button>
         </form>
         <div class="board">
         </div>
     </header>
 
     <body>
+
       <div id= 'bodCont'>
         <div id = 'instructions'>
-        <h3> HERE ARE THE INSTRUCTIINS</h3>
+        <h3>INSTRUCTIONS</h3>
+          <p>We have been stranded in the Star Wars Galaxy!<br><br>Start by loading the planets<br><br>Click on a planet button for fast travel and planet info<br><br>We need to get to:<br><br>150 Battery Points<br>200 Explorer Points<br><br>Only then can we jump back to our universe!<br><br>Good Luck!<br><br>Watch out for enemies!</p>
+        </div>
+        <button id='openModal'>JUMP</button>
+        <div id="modal" class="myModal">
+          <div class="modal-textbox">
+
+            <img src='earth.jpg' id='earth'>
+            <p>Welcome Back to your universe!</p>
+            <p>You have saved your ship and the thirty souls aboard</p>
+            <p>We may now look for a habitable planet ... COMING SOON...</p>
+            <a class="close" id='restart'>Restart Game</a>
+          </div>
         </div>
         <div id='display'>
         </div>
       </div>
-      <div id='currPlan'>
-        <h5>Current Planet Resources:</h5>
-        <h6></h6>
-        <h6></h6>
-        <h6></h6>
+      <div id='center'>
+        <div id='currPlan'>
+          <h5>Planet Points:</h5>
+            <h5 id='planHull'></h5>
+            <h5 id='planBatt'></h5>
+            <h5 id='planExplrPts'></h5>
+            <h5 id='planEnemy'></h5>
+        </div>
       </div>
     </body>
     <footer>
