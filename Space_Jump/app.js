@@ -85,7 +85,7 @@ const pointsGen = () => {
      explrDisplay = 'Explorer Points + ' + randExplr;
 }
 randEnemGen = () => {
-   if(Math.random() <= .7){
+   if(Math.random() <= .8){
        randEnem = 0;
        randEnemDisplay = 'Clear : No Enemy Present';
    }else{
