@@ -75,8 +75,8 @@ const chkStat = () => {
 
 const pointsGen = () => {
      randHull = Math.floor(Math.random()*5);
-     randExplr = Math.floor(Math.random()*20);
-     randBatt = Math.floor(Math.random()*10);
+     randExplr = Math.floor(Math.random()*40);
+     randBatt = Math.floor(Math.random()*50);
      hull += randHull;
      explrPts += randExplr;
      batt += randBatt;
@@ -133,6 +133,7 @@ $('#100').on('click', (event) => {
               $planet.attr('id', 'planId')
               $planet.attr('alt', i)
               $planet.css('background-color', 'white');
+
 
               $planetMod = $('<div>');
               $planetMod.attr('class', 'window')
