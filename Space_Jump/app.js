@@ -132,6 +132,7 @@ $('#100').on('click', (event) => {
               $planet.attr('class', 'openModal'+ i)
               $planet.attr('id', 'planId')
               $planet.attr('alt', i)
+              $planet.css('background-color', 'white');
 
               $planetMod = $('<div>');
               $planetMod.attr('class', 'window')
@@ -282,6 +283,7 @@ $('#200').on('click', (event) => {
               $secSet = i + 11
               $planet.attr('class', 'openModal'+ $secSet)
               $planet.attr('alt', i)
+              $planet.css('background-color', 'white');
 
               $planetMod = $('<div>');
               $planetMod.attr('class', 'window')

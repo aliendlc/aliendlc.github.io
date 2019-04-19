@@ -344,6 +344,8 @@ $image {
     }
     dd {
       font-size: 10px;
+      background-color: white;
+      border-radius: 3px;
     }
     /* #ftHull #ftBatt #ftEx {
       display: flex;
