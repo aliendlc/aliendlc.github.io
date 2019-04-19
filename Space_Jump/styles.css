@@ -298,7 +298,7 @@ $image {
         position: relative;
     }
     footer {
-
+      background-color: rgba(0,0,0,0);
       height: 80px;
       position: static;
       display: inline-block;
@@ -312,6 +312,7 @@ $image {
       /* justify-content: flex-start; */
       margin-left: 5px;
       width: 50%;
+      background-color: rgba(0,0,0,0);
       /* height: inherit; */
 
     }
